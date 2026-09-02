@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ໜ້າເວັບແນະນຳຕົວເອງ - ລະບົບຂໍ້ຄວາມສ່ວນຕົວ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome ສຳລັບໄອຄອນ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Noto Sans Lao', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 min-h-screen text-white flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20 relative overflow-hidden">
+        <!-- ວົງກົມຕົກແຕ່ງດ້ານຫຼັງ -->
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-pink-500/30 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500/30 rounded-full blur-2xl"></div>
+
+        <!-- ໂປຣໄຟລ໌ -->
+        <div class="relative z-10 flex flex-col items-center text-center">
+            <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-pink-500 to-violet-500 mb-4 shadow-lg">
+                <img src="aa.jpg" alt="ຮູບໂປຣໄຟລ໌" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/400x400/333/fff?text=Profile'">
+            </div>
+            
+            <h1 class="text-2xl font-bold tracking-wide">MR.LAMBO TMN</h1>
+            <p class="text-pink-300 text-sm mt-1 font-medium">Content Creator & Developer</p>
+            
+            <p class="text-gray-300 text-sm mt-4 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10">
+                ສະບາຍດີ! ຂ້ອຍມັກການສ້າງສັນຄອນເທນ໌, ຂຽນໂຄດເວັບໄຊ ແລະ ແບ່ງປັນເລື່ອງລາວມ່ວນໆ. ຍິນດີທີ່ໄດ້ຮູ້ຈັກທຸກໆຄົນ! ✨/
+                Chào bạn! tôi thích làm sáo tạo , Lập trình và chìa sẽ chuyện vui. Tôi rất vui được gặp bạn !
+            </p>
+
+            <!-- ລິ້ງໂສຊ່ຽວມີເດຍ -->
+            <div class="flex gap-4 mt-6 w-full">
+                <a href="https://www.facebook.com/lambo.tmn" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 py-3 px-4 rounded-xl font-medium text-sm transition shadow-lg transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-facebook text-lg"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/lambollo._.oll/" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 py-3 px-4 rounded-xl font-medium text-sm transition shadow-lg transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@obmal_x" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-black hover:bg-gray-900 border border-white/20 py-3 px-4 rounded-xl font-medium text-sm transition shadow-lg transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-tiktok text-lg"></i> TikTok
+                </a>
+            </div>
+
+            <!-- ຟອມສົ່ງຂໍ້ຄວາມໃຫ້ເຈົ້າຂອງເວັບ -->
+            <div class="mt-8 w-full text-left">
+                <h3 class="text-sm font-semibold text-gray-200 mb-2 flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-regular fa-paper-plane text-pink-400"></i> ສົ່ງຂໍ້ຄວາມຫາຂ້ອຍ/sent message
+                    </span>
+                    <!-- ປຸ່ມເຂົ້າເບິ່ງສຳລັບເຈົ້າຂອງເວັບ -->
+                    <button onclick="openOwnerModal()" class="text-xs text-indigo-300 hover:text-white underline transition">
+                        <i class="fa-solid fa-lock"></i> ເຈົ້າຂອງເວັບເບິ່ງຂໍ້ຄວາມ
+                    </button>
+                </h3>
+                <form id="msgForm" onsubmit="handleSendMessage(event)" class="space-y-3">
+                    <input type="text" id="senderName" placeholder="ຊື່ຂອງທ່ານ/Your name..." required
+                        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-pink-500 transition">
+                    <textarea id="senderMsg" placeholder="ພິມຂໍ້ຄວາມຂອງທ່ານບ່ອນນີ້/Text letter..." rows="2" required
+                        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-pink-500 transition resize-none"></textarea>
+                    <button type="submit" 
+                        class="w-full bg-pink-600 hover:bg-pink-700 py-2.5 rounded-xl text-sm font-semibold transition shadow-lg">
+                        ສົ່ງຂໍ້ຄວາມສ່ວນຕົວ
+                    </button>
+                </form>
+                
+                <!-- ຂໍ້ຄວາມແຈ້ງເຕືອນສຳເລັດ -->
+                <div id="successAlert" class="hidden mt-3 p-3 bg-emerald-500/20 border border-emerald-500/40 rounded-xl text-emerald-300 text-xs text-center">
+                    ✅ ສົ່ງຂໍ້ຄວາມຫາເຈົ້າຂອງເວັບສຳເລັດແລ້ວ!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ໃສ່ PIN ສຳລັບເຈົ້າຂອງເວັບ -->
+    <div id="ownerModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/20 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
+            <button onclick="closeOwnerModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-lg font-bold">ສຳລັບເຈົ້າຂອງເວັບເທົ່ານັ້ນ</h3>
+                <p class="text-gray-400 text-xs mt-1">ກະລຸນາໃສ່ລະຫັດ PIN ເພື່ອເບິ່ງຂໍ້ຄວາມສ່ວນຕົວ (ຄ່າເລີ່ມຕົ້ນ: 1234)</p>
+                
+                <div class="mt-4 space-y-3">
+                    <input type="password" id="pinInput" placeholder="ໃສ່ລະຫັດ PIN 4 ຫຼັກ" maxlength="6"
+                        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-2 text-center tracking-widest text-lg text-white focus:outline-none focus:border-indigo-500 transition">
+                    <button onclick="verifyPin()" 
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 py-2.5 rounded-xl text-sm font-semibold transition shadow-lg">
+                        ຢືນຢັນລະຫັດ PIN
+                    </button>
+                    <p id="pinError" class="hidden text-rose-400 text-xs">ລະຫັດ PIN ບໍ່ຖືກຕ້ອງ! ກະລຸນາລອງใหม່.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ກ່ອງຂໍ້ຄວາມ (Inbox) ຂອງເຈົ້າຂອງເວັບ -->
+    <div id="inboxModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/20 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative flex flex-col max-h-[85vh]">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <h3 class="text-lg font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-inbox text-pink-400"></i> ກ່ອງຂໍ້ຄວາມສ່ວນຕົວ (<span id="msgCount">0</span>)
+                </h3>
+                <div class="flex items-center gap-2">
+                    <button onclick="openSettingsModal()" class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition flex items-center gap-1">
+                        <i class="fa-solid fa-gear"></i> ປ່ຽນ PIN
+                    </button>
+                    <button onclick="closeInboxModal()" class="text-gray-400 hover:text-white p-1">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ລາຍການຂໍ້ຄວາມ -->
+            <div id="msgList" class="flex-1 overflow-y-auto space-y-3 py-4 pr-1">
+                <!-- ຂໍ້ຄວາມຈະສະແດງບ່ອນນີ້ -->
+            </div>
+
+            <div class="pt-3 border-t border-white/10 flex justify-between items-center text-xs text-gray-400">
+                <span>ຂໍ້ຄວາມທັງໝົດຖືກບັນທຶກໄວ້ໃນເຄື່ອງນີ້ເທົ່ານັ້ນ</span>
+                <button onclick="clearMessages()" class="text-rose-400 hover:underline">ລຶບຂໍ້ຄວາມທັງໝົດ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ຕັ້ງຄ່າປ່ຽນ PIN -->
+    <div id="settingsModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/20 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
+            <button onclick="closeSettingsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h3 class="text-lg font-bold">ປ່ຽນລະຫັດ PIN ໃໝ່</h3>
+                <p class="text-gray-400 text-xs mt-1">ກະລຸນາໃສ່ລະຫັດ PIN ໃໝ່ທີ່ທ່ານຕ້ອງການຈື່</p>
+                
+                <div class="mt-4 space-y-3 text-left">
+                    <div>
+                        <label class="text-xs text-gray-300 mb-1 block">ລະຫັດ PIN ໃໝ່:</label>
+                        <input type="password" id="newPinInput" placeholder="ໃສ່ PIN ໃໝ່..." maxlength="6"
+                            class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-pink-500 transition">
+                    </div>
+                    <div>
+                        <label class="text-xs text-gray-300 mb-1 block">ຢືນຢັນລະຫັດ PIN ໃໝ່:</label>
+                        <input type="password" id="confirmPinInput" placeholder="ຢືນຢັນ PIN ໃໝ່..." maxlength="6"
+                            class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-pink-500 transition">
+                    </div>
+                    <button onclick="saveNewPin()" 
+                        class="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 py-2.5 rounded-xl text-sm font-semibold transition shadow-lg mt-2">
+                        ບັນທຶກລະຫັດ PIN ໃໝ່
+                    </button>
+                    <p id="settingsMsg" class="text-center text-xs mt-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ດຶງ PIN ຈາກ localStorage ຫຼື ໃຊ້ຄ່າເລີ່ມຕົ້ນ '1234'
+        function getStoredPin() {
+            return localStorage.getItem('owner_pin') || '1234';
+        }
+
+        // ບັນທຶກຂໍ້ຄວາມລົງ localStorage
+        function getMessages() {
+            const msgs = localStorage.getItem('private_messages');
+            return msgs ? JSON.parse(msgs) : [];
+        }
+
+        function handleSendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('senderName').value.trim();
+            const msg = document.getElementById('senderMsg').value.trim();
+
+            if (!name || !msg) return;
+
+            const newMessage = {
+                id: Date.now(),
+                name: name,
+                message: msg,
+                time: new Date().toLocaleString('lo-LA', { dateStyle: 'short', timeStyle: 'short' })
+            };
+
+            const messages = getMessages();
+            messages.unshift(newMessage); // ເອົາໄວ້ເທິງສຸດ
+            localStorage.setItem('private_messages', JSON.stringify(messages));
+
+            // ສະແດງຂໍ້ຄວາມແຈ້ງເຕືອນ
+            const alertBox = document.getElementById('successAlert');
+            alertBox.classList.remove('hidden');
+
+            // ລ້າງຟອມ
+            document.getElementById('msgForm').reset();
+
+            setTimeout(() => {
+                alertBox.classList.add('hidden');
+            }, 4000);
+        }
+
+        // ຄວບຄຸມ Modal ຕ່າງໆ
+        function openOwnerModal() {
+            document.getElementById('pinInput').value = '';
+            document.getElementById('pinError').classList.add('hidden');
+            document.getElementById('ownerModal').classList.remove('hidden');
+        }
+
+        function closeOwnerModal() {
+            document.getElementById('ownerModal').classList.add('hidden');
+        }
+
+        function verifyPin() {
+            const enteredPin = document.getElementById('pinInput').value;
+            const correctPin = getStoredPin();
+
+            if (enteredPin === correctPin) {
+                closeOwnerModal();
+                openInboxModal();
+            } else {
+                document.getElementById('pinError').classList.remove('hidden');
+            }
+        }
+
+        function openInboxModal() {
+            renderMessages();
+            document.getElementById('inboxModal').classList.remove('hidden');
+        }
+
+        function closeInboxModal() {
+            document.getElementById('inboxModal').classList.add('hidden');
+        }
+
+        function renderMessages() {
+            const messages = getMessages();
+            document.getElementById('msgCount').textContent = messages.length;
+            const listContainer = document.getElementById('msgList');
+
+            if (messages.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center py-10 text-gray-500 text-sm">
+                        <i class="fa-regular fa-folder-open text-3xl mb-2"></i>
+                        <p>ຍັງບໍ່ມີຂໍ້ຄວາມສ່ວນຕົວເຂົ້າມາເທື່ອ</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            messages.forEach(item => {
+                html += `
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4 relative group">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-semibold text-pink-300 text-sm flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-circle"></i> ${escapeHtml(item.name)}
+                            </h4>
+                            <span class="text-[10px] text-gray-400">${item.time}</span>
+                        </div>
+                        <p class="text-gray-200 text-sm mt-2 whitespace-pre-wrap leading-relaxed">${escapeHtml(item.message)}</p>
+                        <button onclick="deleteSingleMessage(${item.id})" class="absolute bottom-2 right-3 text-gray-500 hover:text-rose-400 text-xs opacity-0 group-hover:opacity-100 transition">
+                            <i class="fa-solid fa-trash"></i> ລຶບ
+                        </button>
+                    </div>
+                `;
+            });
+            listContainer.innerHTML = html;
+        }
+
+        function deleteSingleMessage(id) {
+            let messages = getMessages();
+            messages = messages.filter(m => m.id !== id);
+            localStorage.setItem('private_messages', JSON.stringify(messages));
+            renderMessages();
+        }
+
+        function clearMessages() {
+            if (confirm('ທ່ານຕ້ອງການລຶບຂໍ້ຄວາມທັງໝົດແທ້ບໍ?')) {
+                localStorage.removeItem('private_messages');
+                renderMessages();
+            }
+        }
+
+        // ຟັງຊັນປ່ຽນ PIN
+        function openSettingsModal() {
+            document.getElementById('newPinInput').value = '';
+            document.getElementById('confirmPinInput').value = '';
+            document.getElementById('settingsMsg').textContent = '';
+            document.getElementById('settingsModal').classList.remove('hidden');
+        }
+
+        function closeSettingsModal() {
+            document.getElementById('settingsModal').classList.add('hidden');
+        }
+
+        function saveNewPin() {
+            const newPin = document.getElementById('newPinInput').value.trim();
+            const confirmPin = document.getElementById('confirmPinInput').value.trim();
+            const msgEl = document.getElementById('settingsMsg');
+
+            if (!newPin || newPin.length < 3) {
+                msgEl.className = "text-center text-xs mt-2 text-rose-400";
+                msgEl.textContent = "ກະລຸນາໃສ່ລະຫັດ PIN ຢ່າງໜ້ອຍ 3 ຕົວເລກ/ຕົວອັກສອນ!";
+                return;
+            }
+
+            if (newPin !== confirmPin) {
+                msgEl.className = "text-center text-xs mt-2 text-rose-400";
+                msgEl.textContent = "ລະຫັດ PIN ທັງສອງບໍ່ກົງກັນ!";
+                return;
+            }
+
+            localStorage.setItem('owner_pin', newPin);
+            msgEl.className = "text-center text-xs mt-2 text-emerald-400";
+            msgEl.textContent = "✨ ປ່ຽນລະຫັດ PIN ສຳເລັດແລ້ວ!";
+
+            setTimeout(() => {
+                closeSettingsModal();
+            }, 1500);
+        }
+
+        // ປ້ອງກັນ XSS ພື້ນຖານ
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>
