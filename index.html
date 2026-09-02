@@ -171,7 +171,7 @@
     <script>
         // ດຶງ PIN ຈາກ localStorage ຫຼື ໃຊ້ຄ່າເລີ່ມຕົ້ນ '1234'
         function getStoredPin() {
-            return localStorage.getItem('owner_pin') ;
+            return localStorage.getItem('owner_pin') || '1234' ;
         }
 
         // ບັນທຶກຂໍ້ຄວາມລົງ localStorage
